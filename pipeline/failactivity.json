@@ -1,0 +1,20 @@
+{
+	"name": "failactivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Fail1",
+				"type": "Fail",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"message": "Fail Activity Message",
+					"errorCode": "500"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-08-08T13:17:51Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

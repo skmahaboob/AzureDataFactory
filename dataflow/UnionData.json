@@ -1,0 +1,74 @@
+{
+	"name": "UnionData",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "delhi_csv",
+						"type": "DatasetReference"
+					},
+					"name": "delhidata"
+				},
+				{
+					"dataset": {
+						"referenceName": "mumbai_csv",
+						"type": "DatasetReference"
+					},
+					"name": "mumbaidata"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "unionOutput",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "union1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          {month } as string,",
+				"          sales as string,",
+				"          profit as string,",
+				"          location as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> delhidata",
+				"source(output(",
+				"          {month } as string,",
+				"          sales as string,",
+				"          profit as string,",
+				"          location as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> mumbaidata",
+				"delhidata, mumbaidata union(byName: true,",
+				"     partitionBy('hash', 1))~> union1",
+				"union1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          InvoiceNo as string,",
+				"          StockCode as string,",
+				"          Description as string,",
+				"          Quantity as string,",
+				"          InvoiceDate as string,",
+				"          UnitPrice as string,",
+				"          CustomerID as string,",
+				"          Country as string",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

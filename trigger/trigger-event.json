@@ -1,0 +1,17 @@
+{
+	"name": "trigger-event",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/raw/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/30d9222a-f0fe-4fa8-a5d6-4a54ab31dc0a/resourceGroups/ADFResourceGroup/providers/Microsoft.Storage/storageAccounts/loadingzone",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

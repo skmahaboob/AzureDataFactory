@@ -1,0 +1,30 @@
+{
+	"name": "trigger-tumbling",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "copy_sqldb_to_blob",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"penddate": "@trigger().outputs.windowEndtime",
+				"pstartdate": "@trigger().outputs.windowstarttime"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 24,
+			"startTime": "2024-03-01T00:17:00Z",
+			"endTime": "2024-03-06T00:17:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}

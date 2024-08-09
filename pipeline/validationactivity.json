@@ -1,0 +1,36 @@
+{
+	"name": "validationactivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Validation1",
+				"type": "Validation",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "source",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": {
+								"value": "@pipeline().parameters.filename",
+								"type": "Expression"
+							}
+						}
+					},
+					"timeout": "0.00:00:30",
+					"sleep": 10
+				}
+			}
+		],
+		"parameters": {
+			"filename": {
+				"type": "string",
+				"defaultValue": "department.csv"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-08T12:33:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

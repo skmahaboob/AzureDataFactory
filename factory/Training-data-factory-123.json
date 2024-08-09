@@ -1,0 +1,9 @@
+{
+	"name": "Training-data-factory-123",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5460f92f-ef8d-4960-aefd-26885b4e4879",
+		"tenantId": "4c49cc3b-7d9d-464e-8fc8-a10f91d8117a"
+	}
+}
