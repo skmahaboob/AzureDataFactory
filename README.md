@@ -1,5 +1,3 @@
-# AzureDataFactory
-
 # Azure Data Factory
 
 This repository contains resources for mastering Azure Data Factory from scratch, specifically designed for data engineers. The repository includes pipelines, datasets, linked services, data flows, and an input file that can be used as a practical guide to understand and implement various data engineering tasks in Azure Data Factory.
